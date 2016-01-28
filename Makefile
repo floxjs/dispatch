@@ -31,7 +31,7 @@ init:
 	@git init
 	@git add .
 	@git commit -am "FIRST"
-	@hub create joshrtay/flob -d "Flo bind."
+	@hub create joshrtay/flo-bind -d "Flo bind."
 	@travis enable
 	@git push -u origin master
 

@@ -1,5 +1,5 @@
 
-# flob
+# flo-bind
 
 [![Build status][travis-image]][travis-url]
 [![Git tag][git-image]][git-url]
@@ -10,12 +10,12 @@ Bind a redux middleware stack that has redux-flo at the top.
 
 ## Installation
 
-    $ npm install flob
+    $ npm install flo-bind
 
 ## Usage
 
 ```js
-import flob from 'flob'
+import flob from 'flo-bind'
 import rlog from 'redux-log'
 
 let arr = []
@@ -32,7 +32,7 @@ arr // => ['hello', 'world']
 
 ## API
 
-### flob(...mw)
+### flo-bind(...mw)
 
 - `mw` - redux middleware
 
@@ -42,11 +42,11 @@ arr // => ['hello', 'world']
 
 MIT
 
-[travis-image]: https://img.shields.io/travis/joshrtay/flob.svg?style=flat-square
-[travis-url]: https://travis-ci.org/joshrtay/flob
-[git-image]: https://img.shields.io/github/tag/joshrtay/flob.svg
-[git-url]: https://github.com/joshrtay/flob
+[travis-image]: https://img.shields.io/travis/joshrtay/flo-bind.svg?style=flat-square
+[travis-url]: https://travis-ci.org/joshrtay/flo-bind
+[git-image]: https://img.shields.io/github/tag/joshrtay/flo-bind.svg
+[git-url]: https://github.com/joshrtay/flo-bind
 [standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat
 [standard-url]: https://github.com/feross/standard
-[npm-image]: https://img.shields.io/npm/v/flob.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/flob
+[npm-image]: https://img.shields.io/npm/v/flo-bind.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/flo-bind

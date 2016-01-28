@@ -1,7 +1,7 @@
 {
-  "name": "flob",
+  "name": "flo-bind",
   "description": "Flo bind.",
-  "repository": "git://github.com/joshrtay/flob.git",
+  "repository": "git://github.com/joshrtay/flo-bind.git",
   "version": "1.0.0",
   "license": "MIT",
   "main": "lib/index.js",
