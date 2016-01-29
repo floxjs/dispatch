@@ -2,7 +2,7 @@
   "name": "flo-bind",
   "description": "Flo bind.",
   "repository": "git://github.com/joshrtay/flo-bind.git",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
