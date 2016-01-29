@@ -4,6 +4,7 @@
 
 import flow from 'redux-flo'
 import bind from '@f/bind-middleware'
+import isArray from '@f/is-array'
 
 /**
  * flo-bind
@@ -11,8 +12,9 @@ import bind from '@f/bind-middleware'
  * @return {fn} dispatch function to middleware
  */
 
-function flob (...args) {
-  return bind([flow(), ...args])
+function flob (...mw) {
+  if (isArray(mw[0])) mw = mw[0]
+  return bind([flow(), ...mw])
 }
 
 /**

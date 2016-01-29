@@ -20,3 +20,14 @@ test('should work', (t) => {
   t.deepEqual(l, ['hello', 'world'])
   t.end()
 })
+
+test('should work as array', (t) => {
+  let l = []
+  let log = flob([rlog(l)])
+  log(function * () {
+    yield 'hello'
+    yield 'world'
+  })
+  t.deepEqual(l, ['hello', 'world'])
+  t.end()
+})
