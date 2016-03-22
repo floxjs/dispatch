@@ -4,15 +4,14 @@
 
 import flow from 'redux-flo'
 import bind from '@f/bind-middleware'
-import isArray from '@f/is-array'
 
 /**
- * createDispatch
- * @param  {fn} ...args redux style middleware
+ * yoco
+ * @param  {mw} redux style middleware
  * @return {fn} dispatch function to middleware
  */
 
-function createDispatch (mw, errorHandler) {
+function yoco (mw, errorHandler) {
   return bind([flow(errorHandler), ...mw])
 }
 
@@ -20,4 +19,4 @@ function createDispatch (mw, errorHandler) {
  * Exports
  */
 
-export default createDispatch
+export default yoco

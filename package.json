@@ -1,7 +1,7 @@
 {
-  "name": "@flox/dispatch",
-  "description": "Create a dispatch function from middleware, with flo at the top.",
-  "repository": "git://github.com/floxjs/dispatch.git",
+  "name": "yoco",
+  "description": "Create a yoco function from middleware, with flo at the top.",
+  "repository": "git://github.com/floxjs/yoco.git",
   "version": "1.2.0",
   "license": "MIT",
   "main": "lib/index.js",

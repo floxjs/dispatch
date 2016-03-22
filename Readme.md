@@ -1,25 +1,25 @@
 
-# dispatch
+# yoco
 
 [![Build status][travis-image]][travis-url]
 [![Git tag][git-image]][git-url]
 [![NPM version][npm-image]][npm-url]
 [![Code style][standard-image]][standard-url]
 
-Create a dispatch function from middleware, with flo at the top.
+Your custom co routines. Use redux middleware to define custom yield behavior. Adds [redux-flo](//github.com/redux-effects/redux-flo) to top of stack.
 
 ## Installation
 
-    $ npm install flo-dispatch
+    $ npm install yoco
 
 ## Usage
 
 ```js
-import dispatcher from '@flox/dispatch'
+import yoco from 'yoco'
 import rlog from 'redux-log'
 
 let arr = []
-let log = dispatcher(rlog(arr))
+let log = yoco(rlog(arr))
 
 log(function * () {
   yield 'hello'
@@ -32,21 +32,21 @@ arr // => ['hello', 'world']
 
 ## API
 
-### createDispatch(mw)
+### yoco(mw)
 
 - `mw` - redux middleware
 
-**Returns:** a function that dispatches actions to the middleware stack
+**Returns:** a custom co routine runner
 
 ## License
 
 MIT
 
-[travis-image]: https://img.shields.io/travis/floxjs/dispatch.svg?style=flat-square
-[travis-url]: https://travis-ci.org/floxjs/dispatch
-[git-image]: https://img.shields.io/github/tag/floxjs/dispatch.svg?style=flat-square
-[git-url]: https://github.com/floxjs/dispatch
+[travis-image]: https://img.shields.io/travis/floxjs/yoco.svg?style=flat-square
+[travis-url]: https://travis-ci.org/floxjs/yoco
+[git-image]: https://img.shields.io/github/tag/floxjs/yoco.svg?style=flat-square
+[git-url]: https://github.com/floxjs/yoco
 [standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [standard-url]: https://github.com/feross/standard
-[npm-image]: https://img.shields.io/npm/v/@flox/dispatch.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/@flox/dispatch
+[npm-image]: https://img.shields.io/npm/v/yoco.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/yoco
