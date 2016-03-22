@@ -1,5 +1,5 @@
 
-# flo-dispatch
+# dispatch
 
 [![Build status][travis-image]][travis-url]
 [![Git tag][git-image]][git-url]
