@@ -1,25 +1,25 @@
 
-# flo-bind
+# flo-dispatch
 
 [![Build status][travis-image]][travis-url]
 [![Git tag][git-image]][git-url]
 [![NPM version][npm-image]][npm-url]
 [![Code style][standard-image]][standard-url]
 
-Bind a redux middleware stack that has redux-flo at the top.
+Create a dispatch function from middleware, with flo at the top.
 
 ## Installation
 
-    $ npm install flo-bind
+    $ npm install flo-dispatch
 
 ## Usage
 
 ```js
-import flob from 'flo-bind'
+import dispatcher from '@flox/dispatch'
 import rlog from 'redux-log'
 
 let arr = []
-let log = flob(rlog(arr))
+let log = dispatcher(rlog(arr))
 
 log(function * () {
   yield 'hello'
@@ -32,7 +32,7 @@ arr // => ['hello', 'world']
 
 ## API
 
-### flo-bind(...mw)
+### createDispatch(mw)
 
 - `mw` - redux middleware
 
@@ -42,11 +42,11 @@ arr // => ['hello', 'world']
 
 MIT
 
-[travis-image]: https://img.shields.io/travis/joshrtay/flo-bind.svg?style=flat-square
-[travis-url]: https://travis-ci.org/joshrtay/flo-bind
-[git-image]: https://img.shields.io/github/tag/joshrtay/flo-bind.svg
-[git-url]: https://github.com/joshrtay/flo-bind
-[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat
+[travis-image]: https://img.shields.io/travis/floxjs/dispatch.svg?style=flat-square
+[travis-url]: https://travis-ci.org/floxjs/dispatch
+[git-image]: https://img.shields.io/github/tag/floxjs/dispatch.svg?style=flat-square
+[git-url]: https://github.com/floxjs/dispatch
+[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [standard-url]: https://github.com/feross/standard
-[npm-image]: https://img.shields.io/npm/v/flo-bind.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/flo-bind
+[npm-image]: https://img.shields.io/npm/v/@flox/dispatch.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/@flox/dispatch

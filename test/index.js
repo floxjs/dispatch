@@ -3,7 +3,7 @@
  */
 
 import test from 'tape'
-import flob from '../src'
+import dispatcher from '../src'
 import rlog from 'redux-log'
 
 /**
@@ -12,7 +12,7 @@ import rlog from 'redux-log'
 
 test('should work', (t) => {
   let l = []
-  let log = flob(rlog(l))
+  let log = dispatcher([rlog(l)])
   log(function * () {
     yield 'hello'
     yield 'world'
@@ -23,7 +23,7 @@ test('should work', (t) => {
 
 test('should work as array', (t) => {
   let l = []
-  let log = flob([rlog(l)])
+  let log = dispatcher([rlog(l)])
   log(function * () {
     yield 'hello'
     yield 'world'

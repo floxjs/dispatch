@@ -7,18 +7,17 @@ import bind from '@f/bind-middleware'
 import isArray from '@f/is-array'
 
 /**
- * flo-bind
+ * createDispatch
  * @param  {fn} ...args redux style middleware
  * @return {fn} dispatch function to middleware
  */
 
-function flob (...mw) {
-  if (isArray(mw[0])) mw = mw[0]
-  return bind([flow(), ...mw])
+function createDispatch (mw, errorHandler) {
+  return bind([flow(errorHandler), ...mw])
 }
 
 /**
  * Exports
  */
 
-export default flob
+export default createDispatch
