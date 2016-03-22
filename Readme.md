@@ -38,6 +38,26 @@ arr // => ['hello', 'world']
 
 **Returns:** a custom co routine runner
 
+### yoco.map(fns)
+
+```js
+
+let wacky = yoco.map(wackify)
+
+wacky(function * () {
+  yield 'happy' // => 'wacky happy'
+  yield ['dog', 'cat'] // => ['wacky dog', 'wacky cat']
+})
+
+function wackify (str) {
+  return 'wacky ' + str
+}
+```
+
+- `fns` - functions to perform left to right composition over - composition is past "non-floables"
+
+**Returns:** a custom co routine
+
 ## License
 
 MIT

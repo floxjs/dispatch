@@ -13,6 +13,7 @@
   "dependencies": {
     "@f/bind-middleware": "^1.1.1",
     "@f/is-array": "^1.1.1",
+    "@f/to-middleware": "^1.0.1",
     "redux-flo": "^2.2.0"
   },
   "devDependencies": {
