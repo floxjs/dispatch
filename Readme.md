@@ -34,7 +34,7 @@ arr // => ['hello', 'world']
 
 ### yoco(mw)
 
-- `mw` - redux middleware
+- `mw` - redux middleware or array of middleware
 
 **Returns:** a custom co routine runner
 
