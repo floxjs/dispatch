@@ -6,7 +6,7 @@
 [![NPM version][npm-image]][npm-url]
 [![Code style][standard-image]][standard-url]
 
-Your custom co routines. Use redux middleware to define custom yield behavior. Adds [redux-flo](//github.com/redux-effects/redux-flo) to top of stack.
+Your custom co routines. Use redux middleware to define custom yield behavior, using [redux-flo](//github.com/redux-effects/redux-flo) for control flow.
 
 ## Installation
 
