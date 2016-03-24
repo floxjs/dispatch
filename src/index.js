@@ -23,7 +23,7 @@ function yoco (mw) {
   return dispatch
 
   function errorHandler(err) {
-    return dispatch.onError
+    return dispatch.onError(err)
   }
 
   function wrap (fn) {
