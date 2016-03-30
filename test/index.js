@@ -3,7 +3,7 @@
  */
 
 import test from 'tape'
-import yoco, {map} from '../src'
+import yoco, {map, composable} from '../src'
 import rlog from 'redux-log'
 
 /**
@@ -59,6 +59,73 @@ test('should create mapping generator', (t) => {
 
   function wackify (str) {
     return 'wacky ' + str
+  }
+
+})
+
+test('should compose with gen', (t) => {
+  t.plan(3)
+  var localLog = []
+  var localCo = composable([
+    ctx => next => action => {
+      if (action.type === 'LOG') {
+        localLog.push(action.payload)
+      } else {
+        return next(action)
+      }
+    }
+  ])
+
+  let l = []
+  let co = yoco(rlog(l))
+
+  co(localCo(process)).then(function (res) {
+    t.equal(res, 'done')
+    t.deepEqual(l, ['foo', 'bar'])
+    t.deepEqual(localLog, [1, 2, 3])
+  })
+
+  function * process () {
+    yield {type: 'LOG', payload: 1}
+    yield 'foo'
+    yield {type: 'LOG', payload: 2}
+    yield 'bar'
+    yield {type: 'LOG', payload: 3}
+    return 'done'
+  }
+
+})
+
+test('should throw err in composed', (t) => {
+  t.plan(3)
+  var localLog = []
+  var localCo = composable([
+    ctx => next => action => {
+      if (action.type === 'LOG') {
+        localLog.push(action.payload)
+      } else {
+        return next(action)
+      }
+    }
+  ])
+
+  let l = []
+  let co = yoco(rlog(l))
+
+  co.onError = function (err) {
+    t.equal(err.message, 'stop')
+    t.deepEqual(l, ['foo', 'bar'])
+    t.deepEqual(localLog, [1, 2])
+  }
+
+  co(localCo(process))
+
+  function * process () {
+    yield {type: 'LOG', payload: 1}
+    yield 'foo'
+    yield {type: 'LOG', payload: 2}
+    yield 'bar'
+    throw new Error('stop')
   }
 
 })
