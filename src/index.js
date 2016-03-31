@@ -49,36 +49,45 @@ function map (fns) {
   return yoco(mapArray(toMiddleware, fns))
 }
 
-const composable = mw => action => {
-  if (!isArray(mw)) mw = [mw]
-  var OUT = channel()
-  var IN = channel()
-  var done = false
-  var isError = false
-  var dispatch = yoco([...mw, ctx => next => action => {
-    OUT.put(action)
-    return IN.take()
-  }])
-  dispatch.onError = function (err) {
-    isError = true
-    OUT.put(err)
-  }
-  dispatch(action).then(function (val) {
-    done = true
-    OUT.put(val)
-  })
-
-  return function * () {
+const composable = mw => process => {
+  return function * (action) {
+    var {IN, OUT, isError, done} = run(process(action))
     while (true) {
       var res = yield OUT.take()
-      if (isError) {
+      if (isError()) {
         throw res
-      } else if (!done) {
+      } else if (!done()) {
         IN.put(yield res)
       } else {
         return res
       }
     }
+  }
+
+  function run (action) {
+    var OUT = channel()
+    var IN = channel()
+    var _done = false
+    var _isError = false
+    var dispatch = yoco([...mw, ctx => next => action => {
+      OUT.put(action)
+      return IN.take()
+    }])
+    dispatch.onError = function (err) {
+      _isError = true
+      OUT.put(err)
+    }
+    dispatch(action).then(function (val) {
+      _done = true
+      OUT.put(val)
+    })
+    function done () {
+      return _done
+    }
+    function isError () {
+      return _isError
+    }
+    return {IN, OUT, done, isError}
   }
 }
 
