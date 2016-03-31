@@ -2,7 +2,7 @@
   "name": "yoco",
   "description": "Create a yoco function from middleware, with flo at the top.",
   "repository": "git://github.com/floxjs/yoco.git",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
