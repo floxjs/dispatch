@@ -49,9 +49,9 @@ function map (fns) {
   return yoco(mapArray(toMiddleware, fns))
 }
 
-const composable = mw => process => {
+const composable = mw => proc => {
   return function * (...args) {
-    var {IN, OUT, isError, done} = run(process(...args))
+    var {IN, OUT, isError, done} = run(proc(...args))
     while (true) {
       var res = yield OUT.take()
       if (isError()) {
