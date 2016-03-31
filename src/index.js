@@ -50,8 +50,8 @@ function map (fns) {
 }
 
 const composable = mw => process => {
-  return function * (action) {
-    var {IN, OUT, isError, done} = run(process(action))
+  return function * (...args) {
+    var {IN, OUT, isError, done} = run(process(...args))
     while (true) {
       var res = yield OUT.take()
       if (isError()) {
